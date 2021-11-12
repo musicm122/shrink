@@ -1,0 +1,9 @@
+X:\Projects\Source\godot\shrink\.mono\temp\bin\Debug\shrink.dll
+X:\Projects\Source\godot\shrink\.mono\temp\bin\Debug\shrink.pdb
+X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.csproj.AssemblyReference.cache
+X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.GeneratedMSBuildEditorConfig.editorconfig
+X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.AssemblyInfoInputs.cache
+X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.AssemblyInfo.cs
+X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.csproj.CoreCompileInputs.cache
+X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.dll
+X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.pdb
