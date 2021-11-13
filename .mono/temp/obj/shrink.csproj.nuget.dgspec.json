@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\godot\\shrink\\shrink.csproj": {}
+    "X:\\Projects\\Godot\\shrink\\shrink.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\godot\\shrink\\shrink.csproj": {
+    "X:\\Projects\\Godot\\shrink\\shrink.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\godot\\shrink\\shrink.csproj",
+        "projectUniqueName": "X:\\Projects\\Godot\\shrink\\shrink.csproj",
         "projectName": "shrink",
-        "projectPath": "C:\\Projects\\godot\\shrink\\shrink.csproj",
+        "projectPath": "X:\\Projects\\Godot\\shrink\\shrink.csproj",
         "packagesPath": "C:\\Users\\terra\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\godot\\shrink\\.mono\\temp\\obj\\",
+        "outputPath": "X:\\Projects\\Godot\\shrink\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\terra\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,7 +39,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

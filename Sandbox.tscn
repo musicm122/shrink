@@ -1,69 +1,36 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemy2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Item.tscn" type="PackedScene" id=4]
 [ext_resource path="res://FallDeath.tscn" type="PackedScene" id=5]
 [ext_resource path="res://PauseMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 198.3, -25.4136, 0, 0, 0, 0, 55.5239, -38.1204, 0, 0, 0, 0, -15.864, -88.9477, 0, 0, 0, 0, 63.4559, -171.542, 0, 0, 0, 0, 190.368, -165.189, 0, 0, 0, 0, 150.708, -95.3011, 0, 0, 0, 0, 198.3, -25.4136 )
+"points": PoolVector2Array( 22.0295, -26.727, -22.0295, 26.727, 206.06, -32, -3.67158, -11.5817, 3.67158, 11.5817, 140.121, 7.99998, -30.5984, 42.4264, 30.5984, -42.4264, 82.4241, -64, -6.55681, 22.6274, 6.55681, -22.6274, 255.515, -112, -24.0416, 1.41421, 24.0416, -1.41421, 395.636, -184, -13.1136, -24.7487, 13.1136, 24.7487, 445.091, -152, 25.4987, 2.12132, -25.4987, -2.12132, 370.909, -104, 0, 0, 0, 0, 206.06, -32 )
 }
 
-[node name="Main" type="Node"]
+[node name="Sandbox" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 168, 432 )
+position = Vector2( 1816, 144 )
 scale = Vector2( 2.09102, 1.94982 )
 Speed = 100
 JumpForce = 400
 Gravity = 1200
 
-[node name="Enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1288, 256 )
-scale = Vector2( 1.00857, 1.25917 )
-Speed = 20
-
-[node name="Path2D" type="Path2D" parent="Enemy"]
-position = Vector2( 85.4893, -10.7732 )
-scale = Vector2( 0.888889, 0.826087 )
-curve = SubResource( 1 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 2 )]
-position = Vector2( -56, 528 )
-Speed = 20
-
-[node name="Enemy4" parent="." instance=ExtResource( 2 )]
-position = Vector2( -80, 488 )
-Speed = 20
-
-[node name="Enemy5" parent="." instance=ExtResource( 2 )]
-position = Vector2( -52, 464 )
-Speed = 20
-
-[node name="Enemy6" parent="." instance=ExtResource( 2 )]
-position = Vector2( -80, 432 )
-Speed = 20
-
-[node name="Enemy2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1316, 528 )
-Speed = 20
-
 [node name="Tiles" type="Node" parent="."]
 
 [node name="Tile21" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( -16, 304 )
+position = Vector2( -64, 144 )
 scale = Vector2( 1.50042, -59.3822 )
 
 [node name="Tile23" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 232, 588 )
-scale = Vector2( 23.393, 1 )
-
-[node name="Tile24" parent="Tiles" instance=ExtResource( 3 )]
-position = Vector2( 64, 568 )
-scale = Vector2( 11.4802, 3.70368 )
+position = Vector2( 197, 588 )
+scale = Vector2( -25.0451, -1.12314 )
 
 [node name="Tile57" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 920, 360 )
@@ -230,3 +197,35 @@ scale = Vector2( -3.57293, 5.57376 )
 pause_mode = 2
 margin_right = -1000.0
 margin_bottom = -600.0
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Enemy(Area2d)" type="Node" parent="Enemies"]
+
+[node name="Path2D" type="Path2D" parent="Enemies/Enemy(Area2d)"]
+position = Vector2( 1238, 248 )
+scale = Vector2( 0.970588, 1 )
+curve = SubResource( 1 )
+
+[node name="EnemyFollowPath2d" type="PathFollow2D" parent="Enemies/Enemy(Area2d)/Path2D"]
+position = Vector2( 206.06, -32 )
+rotate = false
+cubic_interp = false
+
+[node name="Enemy" parent="Enemies/Enemy(Area2d)/Path2D/EnemyFollowPath2d" instance=ExtResource( 7 )]
+position = Vector2( 108.848, -20 )
+scale = Vector2( 1.0303, 1 )
+
+[node name="Enemy(Kinematic)" type="Node" parent="Enemies"]
+
+[node name="Path2D2" type="Path2D" parent="Enemies/Enemy(Kinematic)"]
+position = Vector2( 2094, 82 )
+scale = Vector2( 0.970588, 1 )
+curve = SubResource( 1 )
+
+[node name="EnemyFollowPath2d" type="PathFollow2D" parent="Enemies/Enemy(Kinematic)/Path2D2"]
+position = Vector2( 206.06, -32 )
+rotate = false
+cubic_interp = false
+
+[node name="Enemy2" parent="Enemies/Enemy(Kinematic)/Path2D2/EnemyFollowPath2d" instance=ExtResource( 2 )]

@@ -3,29 +3,34 @@ using System;
 
 public class Enemy : Area2D
 {
+    PathFollow2D PathFollow;
 
     [Export]
     public int Speed = 100;
+
+
+    [Export]
+    public int ChaseSpeed = 150;
 
     [Export]
     public NodePath PatrolPath;
     private int patrolIndex = 0;
     private Vector2 Velocity = new Vector2();
+    private Vector2[] PatrolPoints;
 
-    // [Export]
-    // public int MoveDistance = 100;
-
-    // public float StartX;
-
-    // [Export]
-    // public float TargetX;
-
+    [Export]
+    Player playerRef;
 
     public override void _Ready()
     {
-        //StartX = this.Position.x;
-        //TargetX = this.Position.x + MoveDistance;
+        PathFollow = GetParent<PathFollow2D>();
+        // if (PatrolPath != null)
+        // {
+        //     PatrolPoints = GetPatrolPoints(PatrolPath);
+        // }
     }
+
+    Vector2[] GetPatrolPoints(NodePath patrolPath) => PatrolPoints = ((Path2D)GetNode(patrolPath)).Curve.GetBakedPoints();
 
     float MoveTo(float currentX, float targetX, float increment)
     {
@@ -43,19 +48,14 @@ public class Enemy : Area2D
         return newX;
     }
 
+    void MoveOnPath(float delta)
+    {
+        PathFollow.Offset = PathFollow.Offset + Speed * delta;
+    }
+
     public override void _PhysicsProcess(float delta)
     {
-        //https://docs.godotengine.org/en/stable/classes/class_path2d.html
-        //https://kidscancode.org/godot_recipes/kyn/path2d/        
-        //https://kidscancode.org/godot_recipes/basics/getting_nodes/    
-        //https://kidscancode.org/godot_recipes/ai/path_follow/
-        //var posX = MoveTo(Position.x, TargetX, Speed * delta);
-        if(PatrolPath!=null)
-        {            
-            //Path2D path            
-            var node = GetNode(PatrolPath);
-            //node.ge
-        }
+        MoveOnPath(delta);
     }
 
     void OnEnemyBodyEntered(PhysicsBody2D body)
@@ -65,6 +65,18 @@ public class Enemy : Area2D
             var player = (Player)body;
             player.Die();
         }
+    }
+
+    void OnDetectRadiusBodyEntered(PhysicsBody2D body)
+    {
+        if (body.Name == "Player")
+        {
+            playerRef = (Player)body;
+        }
+    }
+    void OnDetectRadiusBodyExited(PhysicsBody2D body)
+    {
+        playerRef = null;
     }
 }
 
