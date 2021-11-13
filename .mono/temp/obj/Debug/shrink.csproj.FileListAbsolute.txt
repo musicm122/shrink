@@ -7,3 +7,12 @@ X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.AssemblyInfo.cs
 X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.csproj.CoreCompileInputs.cache
 X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.dll
 X:\Projects\Source\godot\shrink\.mono\temp\obj\Debug\shrink.pdb
+C:\Projects\godot\shrink\.mono\temp\bin\Debug\shrink.dll
+C:\Projects\godot\shrink\.mono\temp\bin\Debug\shrink.pdb
+C:\Projects\godot\shrink\.mono\temp\obj\Debug\shrink.csproj.AssemblyReference.cache
+C:\Projects\godot\shrink\.mono\temp\obj\Debug\shrink.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\godot\shrink\.mono\temp\obj\Debug\shrink.AssemblyInfoInputs.cache
+C:\Projects\godot\shrink\.mono\temp\obj\Debug\shrink.AssemblyInfo.cs
+C:\Projects\godot\shrink\.mono\temp\obj\Debug\shrink.csproj.CoreCompileInputs.cache
+C:\Projects\godot\shrink\.mono\temp\obj\Debug\shrink.dll
+C:\Projects\godot\shrink\.mono\temp\obj\Debug\shrink.pdb

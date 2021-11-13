@@ -15,8 +15,8 @@
             "type": "godot-mono",
             "request": "launch",
             "mode": "executable",
-            //"executable": "${workspaceRoot}/Godot.exe",
-            "executable": "X:\\apps\\Godot_v3.4-stable_mono_win64\\Godot_v3.4-stable_mono_win64.exe",
+            //"executable": "${workspaceRoot}/Godot.exe",            
+            "executable": "C:\\Apps\\Godot_v3.4-stable_mono_win64\\Godot_v3.4-stable_mono_win64.exe",
             "executableArguments": [
                 "--path",
                 "${workspaceRoot}"
