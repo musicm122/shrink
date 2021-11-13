@@ -10,7 +10,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 22.0295, -26.727, -22.0295, 26.727, 206.06, -32, -3.67158, -11.5817, 3.67158, 11.5817, 140.121, 7.99998, -30.5984, 42.4264, 30.5984, -42.4264, 82.4241, -64, -6.55681, 22.6274, 6.55681, -22.6274, 255.515, -112, -24.0416, 1.41421, 24.0416, -1.41421, 395.636, -184, -13.1136, -24.7487, 13.1136, 24.7487, 445.091, -152, 25.4987, 2.12132, -25.4987, -2.12132, 370.909, -104, 0, 0, 0, 0, 206.06, -32 )
+"points": PoolVector2Array( 22.0295, -26.727, -22.0295, 26.727, 206.06, -32, -30.5984, 42.4264, 30.5984, -42.4264, 82.4241, -64, 0, 0, 0, 0, 206.06, -32 )
 }
 
 [node name="Sandbox" type="Node"]
@@ -175,6 +175,11 @@ position = Vector2( 408, 497 )
 Type = 2
 ItemColor = Color( 0.242188, 1, 0, 1 )
 
+[node name="Grow4" parent="Items" instance=ExtResource( 4 )]
+position = Vector2( 1760, 145 )
+Type = 2
+ItemColor = Color( 0.242188, 1, 0, 1 )
+
 [node name="Grow3" parent="Items" instance=ExtResource( 4 )]
 position = Vector2( 2144, 358 )
 Type = 2
@@ -219,8 +224,8 @@ scale = Vector2( 1.0303, 1 )
 [node name="Enemy(Kinematic)" type="Node" parent="Enemies"]
 
 [node name="Path2D2" type="Path2D" parent="Enemies/Enemy(Kinematic)"]
-position = Vector2( 2094, 82 )
-scale = Vector2( 0.970588, 1 )
+position = Vector2( 2094, 80.3707 )
+scale = Vector2( 0.970589, 0.915109 )
 curve = SubResource( 1 )
 
 [node name="EnemyFollowPath2d" type="PathFollow2D" parent="Enemies/Enemy(Kinematic)/Path2D2"]
@@ -229,3 +234,4 @@ rotate = false
 cubic_interp = false
 
 [node name="Enemy2" parent="Enemies/Enemy(Kinematic)/Path2D2/EnemyFollowPath2d" instance=ExtResource( 2 )]
+PatrolPath = NodePath("../..")

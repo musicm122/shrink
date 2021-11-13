@@ -11,11 +11,13 @@ public class Enemy2 : KinematicBody2D
     [Export]
     public int Speed = 100;
 
+    [Export]
     public NodePath PatrolPath;
 
     private Player playerRef;
     private PathFollow2D PathFollow;
 
+    
     private int patrolIndex = 0;
 
     private Vector2 Velocity = Vector2.Zero;
@@ -45,11 +47,12 @@ public class Enemy2 : KinematicBody2D
         var target = PatrolPoints[patrolIndex];
         if (this.Position.DistanceTo(target) < 1)
         {
-            patrolIndex = Mathf.Clamp(patrolIndex + 1, 0, PatrolPoints.Length);
+            patrolIndex = Mathf.Clamp(patrolIndex + 1, 0, PatrolPoints.Length - 1);
             target = PatrolPoints[patrolIndex];
         }
         Velocity = (target - Position).Normalized() * Speed;
         Velocity = MoveAndSlide(Velocity);
+        if (patrolIndex == PatrolPoints.Length - 1) patrolIndex = 0;
     }
 
     public override void _PhysicsProcess(float delta)
