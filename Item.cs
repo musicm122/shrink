@@ -19,7 +19,6 @@ public class Item : Area2D
 
     void OnItemBodyEntered(PhysicsBody2D body)
     {
-        GD.PrintS("OnItemBodyEntered called");
         if (body.Name == "Player")
         {
             var player = (Player)body;

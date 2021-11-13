@@ -5,10 +5,7 @@ public class Player : KinematicBody2D
 {
     private static PlayerPhysicsConfig DefaultConfig = new PlayerPhysicsConfig
     {
-        Size = global::PlayerSize.Normal,
-        Scale = new Vector2(1f, 1f),
-        JumpForce = 800,
-        Speed = 200,
+        Size = global::PlayerSize.Normal
     };
 
     private static PlayerPhysicsConfig[] configs = new PlayerPhysicsConfig[]{
@@ -16,20 +13,23 @@ public class Player : KinematicBody2D
             Size = global::PlayerSize.Small,
             Scale = new Vector2(0.5f, 0.5f),
             JumpForce = 200,
-            Speed = 200
+            Speed = 200,
+            Gravity = 800
         },
         DefaultConfig,
         new PlayerPhysicsConfig {
             Size = global::PlayerSize.Large,
             Scale = new Vector2(1.5f, 1.5f),
             JumpForce = 500,
-            Speed = 100
+            Speed = 100,
+            Gravity = 1200
         },
         new PlayerPhysicsConfig {
             Size = global::PlayerSize.XLarge,
             Scale = new Vector2(2f, 2f),
             JumpForce = 1000,
-            Speed = 50
+            Speed = 50,
+            Gravity = 1600
         }
     };
 
@@ -69,6 +69,12 @@ public class Player : KinematicBody2D
         get => CurrentConfig.RunMultiplier;
         set => CurrentConfig.RunMultiplier = value;
     }
+
+    // public Vector2 Scale
+    // {
+    //     get => this.Transform.Scale;
+    //     set => this.Transform.Scaled(value);
+    // }
 
     [Export]
     private Vector2 CurrentVelocity = Vector2.Zero;
@@ -151,7 +157,6 @@ public class Player : KinematicBody2D
     public void Die()
     {
         GD.Print("You Died");
-        ApplyDefaultConfig();
         GetTree().ReloadCurrentScene();
     }
 
@@ -173,17 +178,21 @@ public class Player : KinematicBody2D
         ApplyConfig(config);
     }
 
-    void ApplyDefaultConfig() => ApplyConfig(DefaultConfig);
-
+    void ApplyDefaultConfig()
+    {
+        GD.PrintS("ApplyDefaultConfig");
+        ApplyConfig(DefaultConfig);
+    }
     void ApplyConfig(PlayerPhysicsConfig config)
     {
-        GD.PrintS("Applying Config " + config.Size.ToString());
-        this.Size = config.Size;
-        this.Speed = config.Speed;
-        this.JumpForce = config.JumpForce;
-        this.Transform.Scaled(config.Scale);
-        this.animatedSprite.Scale = config.Scale;
-        this.collider.Scale = config.Scale;
+        GD.PrintS("Applying Config " + config.ToString());
         this.CurrentConfig = config;
+        //this.Size = config.Size;
+        //this.Speed = config.Speed;
+        //this.JumpForce = config.JumpForce;
+        this.Scale = config.Scale;
+        //this.Transform.Scaled(config.Scale);
+        //this.animatedSprite.Scale = config.Scale;
+        //this.collider.Scale = config.Scale;
     }
 }
