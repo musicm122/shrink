@@ -3,6 +3,7 @@ using Godot;
 
 public class Player : KinematicBody2D
 {
+
     private static PlayerPhysicsConfig DefaultConfig = new PlayerPhysicsConfig
     {
         Size = global::PlayerSize.Normal
@@ -34,6 +35,9 @@ public class Player : KinematicBody2D
     };
 
     public PlayerPhysicsConfig CurrentConfig = DefaultConfig;
+
+    [Export]
+    public float SnapThreshold = 16;
 
     [Export]
     public PlayerSize Size
@@ -117,13 +121,20 @@ public class Player : KinematicBody2D
         }
     }
 
+    bool CanJump() => Input.IsActionJustPressed(InputConstants.Jump) && IsOnFloor();
+
     void JumpCheck()
     {
-        if (Input.IsActionJustPressed(InputConstants.Jump) && IsOnFloor())
+        if (CanJump())
         {
             CurrentVelocity.y -= JumpForce;
         }
     }
+
+    Vector2 GetSnap() =>
+         !Input.IsActionJustPressed(InputConstants.Jump) && IsOnFloor() ?
+             Vector2.Down * SnapThreshold :
+             Vector2.Zero;
 
     private void AnimationCheck(Vector2 velocity)
     {
@@ -164,9 +175,15 @@ public class Player : KinematicBody2D
     {
         CurrentVelocity.x = 0;
         GetInputMovement();
-        CurrentVelocity = MoveAndSlide(CurrentVelocity, Vector2.Up);
-        CurrentVelocity.y += Gravity * delta;
         JumpCheck();
+        var snap = GetSnap();
+        CurrentVelocity = MoveAndSlideWithSnap(CurrentVelocity, snap, Vector2.Up);
+        // CurrentVelocity = (snap != Vector2.Zero) ?
+        //     MoveAndSlideWithSnap(CurrentVelocity, snap, Vector2.Up) :
+        //     MoveAndSlide(CurrentVelocity, Vector2.Up);
+
+        CurrentVelocity.y += Gravity * delta;
+
         AnimationCheck(CurrentVelocity);
     }
 
@@ -187,12 +204,6 @@ public class Player : KinematicBody2D
     {
         GD.PrintS("Applying Config " + config.ToString());
         this.CurrentConfig = config;
-        //this.Size = config.Size;
-        //this.Speed = config.Speed;
-        //this.JumpForce = config.JumpForce;
         this.Scale = config.Scale;
-        //this.Transform.Scaled(config.Scale);
-        //this.animatedSprite.Scale = config.Scale;
-        //this.collider.Scale = config.Scale;
     }
 }

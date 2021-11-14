@@ -23,12 +23,7 @@ public class Enemy : Area2D
 
     public override void _Ready()
     {
-
         PathFollow = (PathFollow2D)FindNode("PathFollow2D");
-        // if (PatrolPath != null)
-        // {
-        //     PatrolPoints = GetPatrolPoints(PatrolPath);
-        // }
     }
 
     Vector2[] GetPatrolPoints(NodePath patrolPath) => PatrolPoints = ((Path2D)GetNode(patrolPath)).Curve.GetBakedPoints();
