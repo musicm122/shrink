@@ -23,7 +23,8 @@ public class Enemy : Area2D
 
     public override void _Ready()
     {
-        PathFollow = GetParent<PathFollow2D>();
+
+        PathFollow = (PathFollow2D)FindNode("PathFollow2D");
         // if (PatrolPath != null)
         // {
         //     PatrolPoints = GetPatrolPoints(PatrolPath);
