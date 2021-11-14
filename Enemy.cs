@@ -51,7 +51,10 @@ public class Enemy : Area2D
 
     public override void _PhysicsProcess(float delta)
     {
-        MoveOnPath(delta);
+        if (PathFollow != null)
+        {
+            MoveOnPath(delta);
+        }
     }
 
     void OnEnemyBodyEntered(PhysicsBody2D body)

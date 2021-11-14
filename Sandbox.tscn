@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemy2.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://FallDeath.tscn" type="PackedScene" id=5]
 [ext_resource path="res://PauseMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Doorway.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -16,7 +17,7 @@ _data = {
 [node name="Sandbox" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1816, 144 )
+position = Vector2( 40, 556 )
 scale = Vector2( 2.09102, 1.94982 )
 Speed = 100
 JumpForce = 400
@@ -30,7 +31,7 @@ scale = Vector2( 1.50042, -59.3822 )
 
 [node name="Tile23" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 197, 588 )
-scale = Vector2( -25.0451, -1.12314 )
+scale = Vector2( -36.2, -1.6 )
 
 [node name="Tile57" parent="Tiles" instance=ExtResource( 3 )]
 position = Vector2( 920, 360 )
@@ -235,3 +236,10 @@ cubic_interp = false
 
 [node name="Enemy2" parent="Enemies/Enemy(Kinematic)/Path2D2/EnemyFollowPath2d" instance=ExtResource( 2 )]
 PatrolPath = NodePath("../..")
+
+[node name="Doorway" parent="." instance=ExtResource( 8 )]
+position = Vector2( -32, 552 )
+
+[node name="Doorway2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 296, 556 )
+NextScene = "res://EndGame.tscn"
