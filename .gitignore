@@ -10,3 +10,11 @@ export_presets.cfg
 .mono/
 data_*/
 .mono/metadata/
+.mono/metadata/ide_messaging_meta.txt
+.mono/temp/bin/Debug/
+.mono/temp/obj/Debug/
+.mono/metadata/scripts_metadata.editor_player
+.mono/metadata/scripts_metadata.editor
+.mono/metadata/ide_messaging_meta.txt
+
+*.pdb
