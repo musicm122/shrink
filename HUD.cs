@@ -3,11 +3,10 @@ using System;
 
 public class HUD : CanvasLayer
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
 
-    // Called when the node enters the scene tree for the first time.
+    [Export(PropertyHint.File, "*.tscn")]
+    public string NewGameScene = "res://L1.tscn";
+
     public override void _Ready()
     {
         ((Button)FindNode("StartButton")).GrabFocus();
@@ -17,13 +16,13 @@ public class HUD : CanvasLayer
     {
         try
         {
-            GetTree().ChangeScene("res://Main.tscn");
+            GetTree().ChangeScene(NewGameScene);
         }
         catch (Exception e)
         {
             GD.PrintS(e.Message);
             GD.PrintErr(e);
-            throw e; 
+            throw e;
         }
     }
     void OnQuitButtonPressed()

@@ -71,7 +71,8 @@ playing = true
 shape = SubResource( 1 )
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
+offset = Vector2( -100, 0 )
 current = true
-zoom = Vector2( 0.4, 0.4 )
+zoom = Vector2( 0.3, 0.3 )
 offset_h = 1.0
 offset_v = -1.0

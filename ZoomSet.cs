@@ -23,7 +23,6 @@ public class ZoomSet : Area2D
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     void OnZoomSetBodyEntered(PhysicsBody2D body)
     {
-        GD.Print("OnZoomSetBodyEntered");
         if (body.Name == "Player")
         {
             ((Player)body).SetCameraZoom(CameraScaleOnExit);
@@ -32,7 +31,6 @@ public class ZoomSet : Area2D
 
     void OnZoomSetBodyExited(PhysicsBody2D body)
     {
-        GD.Print("OnZoomSetBodyExited");
         if (body.Name == "Player")
         {
             ((Player)body).SetCameraZoom(CameraScaleOnExit);

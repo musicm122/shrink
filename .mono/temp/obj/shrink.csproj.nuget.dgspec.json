@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "X:\\Projects\\Godot\\shrink\\shrink.csproj": {}
+    "C:\\Projects\\godot\\shrink\\shrink.csproj": {}
   },
   "projects": {
-    "X:\\Projects\\Godot\\shrink\\shrink.csproj": {
+    "C:\\Projects\\godot\\shrink\\shrink.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "X:\\Projects\\Godot\\shrink\\shrink.csproj",
+        "projectUniqueName": "C:\\Projects\\godot\\shrink\\shrink.csproj",
         "projectName": "shrink",
-        "projectPath": "X:\\Projects\\Godot\\shrink\\shrink.csproj",
+        "projectPath": "C:\\Projects\\godot\\shrink\\shrink.csproj",
         "packagesPath": "C:\\Users\\terra\\.nuget\\packages\\",
-        "outputPath": "X:\\Projects\\Godot\\shrink\\.mono\\temp\\obj\\",
+        "outputPath": "C:\\Projects\\godot\\shrink\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\terra\\AppData\\Roaming\\NuGet\\NuGet.Config",

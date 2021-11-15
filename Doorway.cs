@@ -15,7 +15,6 @@ public class Doorway : Area2D
 
     void OnDoorwayBodyEntered(PhysicsBody2D body)
     {
-        GD.Print("OnDoorwayBodyEntered");
         if (body.Name == "Player")
         {
             sceneTransition.TransitionToNextScene(NextScene);

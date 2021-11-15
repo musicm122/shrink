@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5HmBEXJzzYfR39lqUiTvuOF/4/cNnBmfH9i7Rvyxm2V9s8rAlP3ipRce+0OA+eC+XKplwcWZAOHDoiEAYYOlWw==",
+  "dgSpecHash": "TpjaX1Zmv6nRgIHANbOqGb4b/Z9D1m4SBNYU1l7WOepo2841Pxvw8RRH+78YLVLd4/yUaA/QE+2khPoHR+yHPg==",
   "success": true,
-  "projectFilePath": "X:\\Projects\\Godot\\shrink\\shrink.csproj",
+  "projectFilePath": "C:\\Projects\\godot\\shrink\\shrink.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

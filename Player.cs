@@ -102,16 +102,7 @@ public class Player : KinematicBody2D
 
     public void SetCameraZoom(Vector2 scale)
     {
-        GD.Print("SetCameraZoom called with args: " + scale);
-        GD.PrintT(
-            "Old Camera Zoom X = " + this.camera.Zoom.x,
-            "Old Camera Zoom Y = " + this.camera.Zoom.y
-        );
         this.camera.Zoom = scale;
-        GD.PrintT(
-            "New Camera Zoom X = " + this.camera.Zoom.x,
-            "New Camera Zoom Y = " + this.camera.Zoom.y
-        );
     }
 
     private void GetInputMovement()
